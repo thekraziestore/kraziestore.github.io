@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>T-Shirt Store</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f0f0f0;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1f1f1f;
+      padding: 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .product {
+      display: flex;
+      flex-direction: column;
+      background: #1e1e1e;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+    }
+    .product img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .product h2 {
+      margin: 0 0 0.5rem;
+    }
+    .product p {
+      margin-bottom: 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input, select, button {
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    input, select {
+      background: #2c2c2c;
+      color: #f0f0f0;
+    }
+    button {
+      background: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    🧥 Dark T-Shirt Store
+  </header>
+  <div class="container">
+    <div class="product">
+      <img src="https://via.placeholder.com/300x300.png?text=Black+T-Shirt" alt="T-Shirt">
+      <h2>Black T-Shirt</h2>
+      <p>Price: ₹499</p>
+      <form onsubmit="handlePayment(event)">
+        <label for="size">Size:</label>
+        <select id="size" required>
+          <option value="">Select size</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+        </select>
+
+        <label for="upi">Your UPI ID:</label>
+        <input type="text" id="upi" placeholder="example@upi" required />
+
+        <button type="submit">Pay with UPI</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function handlePayment(event) {
+      event.preventDefault();
+      const size = document.getElementById('size').value;
+      const upi = document.getElementById('upi').value;
+
+      if (upi && size) {
+        alert(`Redirecting to UPI app to pay ₹499 for size ${size}...\n(UPI ID: ${upi})`);
+        // Note: Real UPI integration should use a payment gateway like Razorpay or BharatPe
+      }
+    }
+  </script>
+</body>
+</html>
